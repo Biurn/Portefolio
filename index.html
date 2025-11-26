@@ -3,162 +3,728 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kouamé Rehuel - Portfolio Big Data & IA</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>K-Tech/Rehuel Kouame - Portefolio/Création de Sites Web/data science/IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 250px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 62, 80, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <ul class="menu">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#apropos">À propos</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Section Accueil -->
-    <section id="accueil" class="section">
+    <!-- Header & Navigation -->
+    <header>
         <div class="container">
-            <img src="images/rehuel.jpg" alt="Kouamé Rehuel" class="profile-img">
-            <h1>Kouamé Rehuel</h1>
-            <p class="citation">"Transformer les données en connaissances, et les connaissances en solutions innovantes pour l'Afrique."</p>
-            <div class="buttons">
-                <a href="#" class="btn">Télécharger CV</a>
-                <a href="#contact" class="btn">Me contacter</a>
+            <nav class="navbar">
+                <a href="#" class="logo">K-<span>Tech</span></a>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1>K-Tech</h1>
+                <p>Création de Sites Web Professionnels et Modernes</p>
+                <a href="#contact" class="btn">Demander un Devis</a>
             </div>
         </div>
     </section>
 
-    <!-- Section À propos -->
-    <section id="apropos" class="section">
+    <!-- About Section -->
+    <section class="section" id="apropos">
         <div class="container">
-            <h2>À propos de moi</h2>
+            <div class="section-title">
+                <h2>À Propos de K-Tech</h2>
+            </div>
             <div class="about-content">
-                <p>Étudiant passionné en Big Data et Intelligence Artificielle à l'ESATIC, je me spécialise dans l'analyse des données massives et le développement d'algorithmes intelligents. Originaire de Côte d'Ivoire, je souhaite mettre mes compétences au service du développement technologique du continent africain.</p>
-                
-                <div>
-                    <h3>Objectifs de carrière</h3>
-                    <p>Devenir Architecte Data et développer des solutions Big Data adaptées aux besoins spécifiques des entreprises africaines.</p>
-                    
-                    <h3>Centres d'intérêt</h3>
-                    <ul>
-                        <li>Data Mining et analyse prédictive</li>
-                        <li>Deep Learning appliqué aux images</li>
-                        <li>Visualisation interactive de données</li>
-                        <li>Technologies émergentes en Afrique</li>
-                    </ul>
+                <div class="about-text">
+                    <h3>Votre Partenaire en Développement Web</h3>
+                    <p>K-Tech est une entreprise spécialisée dans la création de sites web modernes, responsives et performants. Nous transformons vos idées en réalité numérique avec un design soigné et un code de qualité.</p>
+                    <p>Que vous ayez besoin d'un portfolio élégant, d'un site e-commerce complet ou d'une landing page percutante, notre équipe met son expertise à votre service pour créer la présence en ligne qui vous correspond.</p>
+                    <p>Nous proposons également des services de correction de bugs, création de bases de données, formulaires interactifs et cours particuliers en développement web.</p>
+                    <a href="#services" class="btn">Découvrir nos Services</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Équipe K-Tech">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Compétences -->
-    <section id="competences" class="section">
+    <!-- Services Section -->
+    <section class="section services" id="services">
         <div class="container">
-            <h2>Compétences techniques</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Développement Web</h3>
-                    <ul>
-                        <li><i class="fab fa-html5"></i> HTML5</li>
-                        <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                    </ul>
+            <div class="section-title">
+                <h2>Nos Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Création de Site Web</h3>
+                    <p>Développement de sites web sur mesure adaptés à vos besoins spécifiques.</p>
+                    <div class="price">À partir de 50k</div>
+                    <a href="#contact" class="btn">Commander</a>
                 </div>
-                <div class="skill-category">
-                    <h3>Programmation</h3>
-                    <ul>
-                        <li><i class="fab fa-python"></i> Python (NumPy, Pandas)</li>
-                        <li><i class="fas fa-database"></i> SQL (MySQL, PostgreSQL)</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Site E-commerce</h3>
+                    <p>Création de boutiques en ligne complètes avec gestion des produits et paiements sécurisés.</p>
+                    <div class="price">150k</div>
+                    <a href="#contact" class="btn">Commander</a>
                 </div>
-                <div class="skill-category">
-                    <h3>Big Data</h3>
-                    <ul>
-                        <li><i class="fas fa-server"></i> Hadoop & HDFS</li>
-                        <li><i class="fas fa-bolt"></i> Apache Spark</li>
-                        <li><i class="fas fa-chart-bar"></i> Power BI</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Correction de Bugs</h3>
+                    <p>Identification et résolution de problèmes techniques sur vos sites existants.</p>
+                    <div class="price">10-50k</div>
+                    <a href="#contact" class="btn">Commander</a>
                 </div>
-                <div class="skill-category">
-                    <h3>Intelligence Artificielle</h3>
-                    <ul>
-                        <li><i class="fas fa-brain"></i> scikit-learn</li>
-                        <li><i class="fas fa-network-wired"></i> TensorFlow/Keras</li>
-                        <li><i class="fas fa-robot"></i> NLP (basics)</li>
-                    </ul>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Bases de Données & Formulaires</h3>
+                    <p>Conception de bases MySQL, formulaires interactifs et tableaux de bord.</p>
+                    <div class="price">20-70k</div>
+                    <a href="#contact" class="btn">Commander</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Cours Particuliers</h3>
+                    <p>Formation personnalisée en développement web pour tous niveaux.</p>
+                    <div class="price">3k/heure</div>
+                    <a href="#contact" class="btn">Commander</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Landing Page</h3>
+                    <p>Création de pages d'atterrissage optimisées pour la conversion.</p>
+                    <div class="price">50-80k</div>
+                    <a href="#contact" class="btn">Commander</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Projets -->
-    <section id="projets" class="section">
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
         <div class="container">
-            <h2>Mes Projets</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="images/ecommerce.jpg" alt="Analyse des données agricoles">
-                    <h3>Developpement d'un site de E-commerce pour TBPS</h3>
-                    <p>Projet PROFESSIONNEL  dE CONCEPTION de site web de E-commerce en utilisant PHP et MYSQL pour le back-end et HTML/CSS pour le front-end.</p>
-                    <a href="#" class="btn">Voir le site <link rel="website" href="https://www.tbps.store/"> </a>
-                </div>
-                <div class="project-card">
-                    <img src="images/projet_ia.jpg" alt="Reconnaissance d'images médicales">
-                    <h3>Reconnaissance d'images médicales</h3>
-                    <p>Prototype de classification d'images radiologiques utilisant TensorFlow dans le cadre d'un projet de recherche à l'ESATIC.</p>
-                    <a href="#" class="btn">Voir sur GitHub</a>
-                </div>
+            <div class="section-title">
+                <h2>Nos Réalisations</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-content">
-                <form class="contact-form">
-                    <input type="text" placeholder="Votre nom" required>
-                    <input type="email" placeholder="Votre email" required>
-                    <textarea placeholder="Votre message" required></textarea>
-                    <button type="submit" class="btn">Envoyer</button>
-                </form>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> kouame.rehuel@esatic.edu.ci</p>
-                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/kouame-rehuel</p>
-                    <p><i class="fab fa-github"></i> github.com/rehuel-kouame</p>
-                    <div class="qr-code">
-                        <div class="qr-placeholder">QR Code vers CV</div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portfolio Personnel">
+                    <div class="portfolio-overlay">
+                        <h3>Portfolio Personnel</h3>
+                        <p>Site vitrine élégant pour un photographe professionnel</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Boutique en Ligne">
+                    <div class="portfolio-overlay">
+                        <h3>Boutique en Ligne</h3>
+                        <p>Site e-commerce complet avec système de paiement</p>
+                        <a href="#" class="btn">Voir le projet</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Application Web">
+                    <div class="portfolio-overlay">
+                        <h3>Application Web</h3>
+                        <p>Plateforme de gestion avec base de données et tableau de bord</p>
+                        <a href="#" class="btn">Voir le projet</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contactez-nous</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Parlons de votre projet</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</p>
+                    <p><i class="fas fa-phone"></i> +225 07 00 00 00 00</p>
+                    <p><i class="fas fa-envelope"></i> contact@k-tech.ci</p>
+                    <p><i class="fas fa-clock"></i> Lun - Ven: 9h00 - 18h00</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service souhaité</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Sélectionnez un service</option>
+                                <option value="portfolio">Portfolio (70k)</option>
+                                <option value="ecommerce">E-commerce (150k)</option>
+                                <option value="landing">Landing Page (50-80k)</option>
+                                <option value="bugs">Correction de bugs (10-50k)</option>
+                                <option value="database">Bases MySQL/Formulaires (20-70k)</option>
+                                <option value="cours">Cours particuliers (3k/heure)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Portfolio de Kouamé Rehuel - ESATIC Big Data & IA</p>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">K-<span>Tech</span></div>
+                    <p>Votre partenaire de confiance pour tous vos projets web.</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 K-Tech. Tous droits réservés.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Bouton Mode Sombre -->
-    <button id="darkModeToggle" class="dark-mode-btn">
-        <i class="fas fa-moon"></i> Mode Sombre
-    </button>
-
     <script>
-        const toggle = document.getElementById('darkModeToggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            const icon = toggle.querySelector('i');
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-                toggle.innerHTML = '<i class="fas fa-sun"></i> Mode Clair';
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                toggle.innerHTML = '<i class="fas fa-moon"></i> Mode Sombre';
-            }
+        // Menu mobile
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Fermer le menu en cliquant sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message! Nous vous répondrons dans les plus brefs délais.');
+            this.reset();
         });
     </script>
 </body>
